@@ -16,3 +16,12 @@
 
   --font-red-hat-text: "Red Hat Text", sans-serif;
 }
+
+:root {
+  --colums: 1fr 450px;
+}
+
+@font-face {
+  font-family: "Red Hat Text";
+  src: url(assets/fonts/RedHatText-VariableFont_wght.ttf);
+}
