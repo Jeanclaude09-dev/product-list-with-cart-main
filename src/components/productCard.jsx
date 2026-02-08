@@ -4,32 +4,48 @@ import { ShoppingCart } from "lucide-react";
 function ProductCard() {
   return (
     <section>
-      <h1>Desserts</h1>
-      <div className="grid grid-cols-3 gap-4 ">
+      <h1 className="text-rose-900 text-4xl font-bold mb-5">Desserts</h1>
+      {/* when you use curly braces {} after the arrow =>,
+        you need to explicitly tell JavaScript what to return
+        use () instead
+        */}
+      <div className="grid grid-cols-3 gap-5 group">
         {productDetail.map((items) => (
           <div>
-            <div key={items.id} className="flex flex-col items-center">
+            <div
+              key={items.id}
+              className="flex flex-col items-center group relative mb-8"
+            >
               <picture>
                 <source
                   media="(min-width: 1024px)"
                   srcset={items.image.desktop}
                   alt={items.image.alt}
+                  className="rounded-2xl "
                 />
                 <source
                   media="(min-width: 660px)"
                   srcset={items.image.tablet}
                   alt={items.image.alt}
+                  className="rounded-2xl "
                 />
-                <img src={items.image.mobile} alt={items.image.alt} />
+                <img
+                  src={items.image.mobile}
+                  alt={items.image.alt}
+                  className="rounded-2xl "
+                />
               </picture>
-              <button className="flex gap-2">
-                <ShoppingCart />
+              <button className="flex gap-2 absolute -bottom-5 px-4 py-2 bg-rose-50 rounded-full  border border-rose-500 cursor-pointer  ">
+                <ShoppingCart color="#c73a0f" />
                 <span>Add to Cart</span>
               </button>
             </div>
-            <p>{items.category}</p>
-            <h2>{items.name}</h2>
-            <span>{items.price}</span>
+            <p className="text-rose-300">{items.category}</p>
+            <h2 className="text-rose-900 text-lg">{items.name}</h2>
+            <span className="text-red font-semibold">
+              ${items.price.toFixed(2)}
+            </span>
+            {/* toFixed method format number */}
           </div>
         ))}
       </div>

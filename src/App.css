@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 @theme {
   /* ====== Colors ====== */
 
@@ -18,7 +24,7 @@
 }
 
 :root {
-  --colums: 1fr 450px;
+  --colums: 1fr 350px;
 }
 
 @font-face {
