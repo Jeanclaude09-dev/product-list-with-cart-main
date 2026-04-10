@@ -1,7 +1,8 @@
-import productDetail from "../../data.json";
+import { useApp } from "@/context/appContext";
 import { ShoppingCart } from "lucide-react";
 
-function ProductCard() {
+function ProductCard({ data }) {
+
   return (
     <section>
       <h1 className="text-rose-900 text-4xl font-bold mb-5">Desserts</h1>
@@ -10,12 +11,9 @@ function ProductCard() {
         use () instead
         */}
       <div className="grid grid-cols-3 gap-5 group">
-        {productDetail.map((items) => (
-          <div>
-            <div
-              key={items.id}
-              className="flex flex-col items-center group relative mb-8"
-            >
+        {data.map((items) => (
+          <div key={items.id}>
+            <div className="flex flex-col items-center group relative mb-8">
               <picture>
                 <source
                   media="(min-width: 1024px)"
@@ -32,10 +30,10 @@ function ProductCard() {
                 <img
                   src={items.image.mobile}
                   alt={items.image.alt}
-                  className="rounded-2xl "
+                  className="rounded-2xl"
                 />
               </picture>
-              <button className="flex gap-2 absolute -bottom-5 px-4 py-2 bg-rose-50 rounded-full  border border-rose-500 cursor-pointer  ">
+              <button className="flex items-center gap-2 absolute -bottom-5 px-4 py-2 bg-rose-50 rounded-full  border border-rose-500 cursor-pointer ">
                 <ShoppingCart color="#c73a0f" />
                 <span>Add to Cart</span>
               </button>
