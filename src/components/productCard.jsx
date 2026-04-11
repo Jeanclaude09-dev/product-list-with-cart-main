@@ -1,9 +1,11 @@
 import { useApp } from "@/context/appContext";
 import { ShoppingCart } from "lucide-react";
 
-function ProductCard({ data }) {
+function ProductCard() {
+  const { data } = useApp();
 
   return (
+
     <section>
       <h1 className="text-rose-900 text-4xl font-bold mb-5">Desserts</h1>
       {/* when you use curly braces {} after the arrow =>,
